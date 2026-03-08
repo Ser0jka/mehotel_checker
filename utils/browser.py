@@ -39,7 +39,7 @@ async def check_site() -> tuple[bool, str]:
                 print("Кнопка во фрейме успешно нажата!")
 
             except PlaywrightTimeoutError:
-                return False, "Ошибка: Не удалось найти кнопку внутри фрейма виджета."
+                return False, "❗️❗️❗️ Ошибка: Не удалось найти кнопку внутри фрейма виджета."
 
             # 4. Нажимаем на первую доступную кнопку "Выбрать".
             # Playwright автоматически дождется появления этой кнопки.
@@ -53,10 +53,10 @@ async def check_site() -> tuple[bool, str]:
                 return True, "Проверка прошла успешно! Кнопка 'Забронировать' найдена."
             except PlaywrightTimeoutError:
                 await browser.close()
-                return False, "Ошибка: Кнопка 'Забронировать' не найдена после нажатия на 'Выбрать'."
+                return False, "❗️❗️❗️ Ошибка: Кнопка 'Забронировать' не найдена после нажатия на 'Выбрать'."
 
         except Exception as e:
             await browser.close()
             # Возвращаем понятное сообщение об ошибке
-            error_message = f"На одном из этапов произошла ошибка: {type(e).__name__}\n{str(e)}"
+            error_message = f"❗️❗️❗️На одном из этапов произошла ошибка: {type(e).__name__}\n{str(e)}"
             return False, error_message
