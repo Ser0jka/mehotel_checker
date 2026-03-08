@@ -1,0 +1,9 @@
+version: '3.8'
+
+services:
+  mehotel-check-bot:
+    build: .
+    container_name: mehotel_check_bot
+    env_file:
+      - .env
+    restart: unless-stopped
